@@ -16,10 +16,10 @@
 
 #qui fais quoi?
 
-Léo:Température/Hygrométrie </p>
-Botan:IHM/base de données en ligne </p>
-Thithi:SMS/Alerte </p>
-Emilien:Mesure de masses  </p>
-Maxime: Stockage données carte SD </p>
+<b>Léo: </b>Température/Hygrométrie </p>
+<b>Botan: </b>IHM/base de données en ligne </p>
+<b>Thithi: </b>SMS/Alerte </p>
+<b>Emilien: </b>Mesure de masses  </p>
+<b>Maxime: </b>Stockage données carte SD </p>
 
 
