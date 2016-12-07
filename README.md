@@ -18,7 +18,7 @@
 
 <b>Léo: </b>Température/Hygrométrie </p>
 <b>Botan: </b>IHM/base de données en ligne </p>
-<b>Thithi: </b>SMS/Alerte </p>
+<b>Titi: </b>SMS/Alerte </p>
 <b>Emilien: </b>Mesure de masses  </p>
 <b>Maxime: </b>Stockage données carte SD </p>
 
