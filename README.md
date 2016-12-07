@@ -5,9 +5,16 @@ http://forum.simple-duino.com/t379-Utilisation-d-un-capteur-de-force-avec-une-ca
 
 #matériel nécessaire: 
 
--capteur de poids
-- arduino
--cable
+-capteur de poids </p>
+- arduino</p>
+-cable</p>
+
+
+#étape à faire:
+
+-solutions pour peser  (capteur à utiliser)</p>
+-solutions de progra </p>
+        
 
 
 
