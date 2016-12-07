@@ -3,7 +3,7 @@
 <img src="graph.png"/>
 
 
-#matériels possibles
+#Matériels possibles
 
 -capteur t°/humidité/masse </p>
 -arduinos (nbrs à définir)  </p>
@@ -14,7 +14,7 @@
 -panneaux solaire/éolienne   </p>
 
 
-#qui fais quoi?
+#Qui fait quoi?
 
 <b>Léo: </b>Température/Hygrométrie </p>
 <b>Botan: </b>IHM/base de données en ligne </p>
