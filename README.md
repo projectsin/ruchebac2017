@@ -1,2 +1,6 @@
 # ruchebac2017
-<p> Test </p> 
+<p> Etape: </p>
+<p> 1) Reçevoir des alertes (vol, hygrométrie ...) </p>
+<p> 2) Envoyer un sms d'alerte à l'apiculteur </p>
+<p> 3) Permettre à l'apiculteur d'envoyer un SMS pour confirmer la lecture du sms et terminer l'alerte </p>
+
