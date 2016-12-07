@@ -5,9 +5,9 @@
 
 #matériels possibles
 
--capteur t°/humidité/masse
--arduinos (nbrs à définir) 
--ANDROID IHM 
+-capteur t°/humidité/masse </p>
+-arduinos (nbrs à définir)  </p>
+-ANDROID IHM  </p>
 -Carte SD 
 -Infrarouges/cable/sattelite/Bluetooth/Micro-Ondes 
 -module GSM
