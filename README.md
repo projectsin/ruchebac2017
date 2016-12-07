@@ -1,6 +1,6 @@
 # ruchebac2017 
 
-# Partie capteur température/hydrométie:
+# Partie capteur température/hydrométrie:
 <b> Etapes à suivre durant le projet: </b> </p>
 </p>
 Cette patie sert a prendre des mesures de la température ainsi que de l'humidité de chacune des ruches.
