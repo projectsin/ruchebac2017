@@ -37,6 +37,7 @@
 <b>Etape 6 </b> : <p>Finalisation &#9744;</p>
 <b>Etape 7 </b> : <p>Oral &#9744;</p>
 
+#Equipe
+<img src="20161214_102659.jpg"/>
 
 
-#Images
