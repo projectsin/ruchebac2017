@@ -43,8 +43,6 @@
 #Ruche (Type)
 <img src="images/20161214_101843.jpg"/>
 <img src="images/20161214_101950.jpg"/>
-<img src="images/20161214_102659.jpg"/>
 <img src="images/20161214_102004.jpg"/>
 <img src="images/20161214_102014.jpg"/>
 <img src="images/20161214_102024.jpg"/>
-<img src="images/20161214_102633.jpg"/>
