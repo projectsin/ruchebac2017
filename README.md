@@ -39,18 +39,4 @@
 
 
 
-
-#Questions à poser:
-
-<p>Combien peut peser une ruche au maximum?</p>
-<p>OU installer la carte arduino/capteurs?</p>
-<p>à quelle distance sont les différentes ruches?</p>
-<p>Combien de fois voulez vous les informations d'hygrométrie/température/masse?</p>
-<p>Est ce que les ondes sont dangereuses pour les abeilles?</p>
-<p>De combien peut varier la température d'une ruche?</p>
-<p>Est ce que des cables sont dérangeant?</p>
-<p>Combien de fois voulez vous vérifier vos ruches par jour?</p>
-<p>Quelles sont les risques de vols?<p/>
-<p>Est ce que les vents violent/tempêtes peuvent arracher les ruches?<p/>
-
-
+#Images
