@@ -38,6 +38,6 @@
 <b>Etape 7 </b> : <p>Oral &#9744;</p>
 
 #Equipe
-<img src="20161214_102659.jpg"/>
+<img src="images/20161214_102659.jpg"/>
 
 
