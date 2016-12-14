@@ -50,5 +50,7 @@
 <p>De combien peut varier la température d'une ruche?</p>
 <p>Est ce que des cables sont dérangeant?</p>
 <p>Combien de fois voulez vous vérifier vos ruches par jour?</p>
+<p>Quelles sont les risques de vols?<p/>
+<p>Est ce que les vents violent/tempêtes peuvent arracher les ruches?<p/>
 
 
