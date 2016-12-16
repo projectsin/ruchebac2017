@@ -1,7 +1,7 @@
 # ruchebac2017
 ![Build Status](https://img.shields.io/badge/Emilien-10-yellow.svg?style=flat)
 ![Build Status](https://img.shields.io/badge/Titi-10-blue.svg?style=flat)
-![Build Status](https://img.shields.io/badge/Maxime-10-pink.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Maxime-10-blue.svg?style=flat)
 ![Build Status](https://img.shields.io/badge/Leo-10-yellow.svg?style=flat)
 ![Build Status](https://img.shields.io/badge/Botan-30-red.svg?style=flat)
 
