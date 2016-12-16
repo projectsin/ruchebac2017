@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Material Login Example</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_item_list">Liste des ruches</string>
+    <string name="title_item_detail">Details de la ruche</string>
+</resources>
