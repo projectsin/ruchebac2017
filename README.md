@@ -1,9 +1,9 @@
 # ruchebac2017
-![Build Status](https://img.shields.io/badge/Emilien-0-yellow.svg?style=flat)
-![Build Status](https://img.shields.io/badge/Titi-0-blue.svg?style=flat)
-![Build Status](https://img.shields.io/badge/Maxime-0-green.svg?style=flat)
-![Build Status](https://img.shields.io/badge/Leo-0-yellow.svg?style=flat)
-![Build Status](https://img.shields.io/badge/Botan-0-red.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Emilien-10-yellow.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Titi-10-blue.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Maxime-10-green.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Leo-10-yellow.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Botan-30-red.svg?style=flat)
 
 <img src="graph.png"/>
 
