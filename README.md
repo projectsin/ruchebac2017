@@ -8,6 +8,8 @@ http://www.ebay.fr/itm/4pcs-Demi-pont-Pression-Capteur-Module-Echelles-Pesage-Pe
 
 http://www.ebay.fr/itm/4Pcs-50Kg-3-Cable-d-Resistance-Train-Demi-Pont-electronique-Pesage-Capteur-/391595505248?hash=item5b2ce93660:g:qNcAAOSw44BYW4qX  </p>
 
+http://www.gotronic.fr/art-capteur-de-force-50-kg-czl635-50-17601.htm  </p>
+
 
 #matériel nécessaire: 
 
