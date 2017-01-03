@@ -32,7 +32,7 @@
 <b>Etape 1 </b> : <p>Analyse du SysML &#9745; </p>
 <b>Etape 2 </b> : <p>Rencontrer apiculteur / definir contraintes &#9745;</p>
 <b>Etape 3 </b> : <p>Se mettre d'accord sur les tâches à effectuer &#9745;</p>
-<b>Etape 4 </b> : <p>SysML &#9744;</p>
+<b>Etape 4 </b> : <p>SysML + algo (LARP) &#9744;</p>
 <b>Etape 5 </b> : <p>Commencer partie personelle &#9744;</p>
 <b>Etape 6 </b> : <p>Rassembler les programmes &#9744;</p>
 <b>Etape 7 </b> : <p>Finalisation &#9744;</p>
