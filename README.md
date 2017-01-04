@@ -39,7 +39,7 @@
 <b>Etape 8 </b> : <p>Oral &#9744;</p>
 
 #Equipe
-<img src="images/20161214_102659.jpg"/>
+Photo à refaire.
 
 #Ruche (Type)
 <img src="images/20161214_101843.jpg"/>
