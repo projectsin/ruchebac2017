@@ -20,7 +20,6 @@
 
 
 #Qui fait quoi?
-
 <b>Léo: </b><p>Mesure de température/hygrométrie </p>
 <b>Botan: </b><p>IHM/base de données en ligne </p>
 <b>Titi: </b><p>SMS/Alerte </p>
@@ -47,3 +46,15 @@ Photo à refaire.
 <img src="images/20161214_102004.jpg"/>
 <img src="images/20161214_102014.jpg"/>
 <img src="images/20161214_102024.jpg"/>
+
+
+
+
+#liste du matos nécessaire: 
+
+-http://www.gotronic.fr/art-interface-1046-pour-4-capteurs-de-force-17603.htm  interface pour capteur de force 100.90€  </p>
+-http://www.gotronic.fr/art-capteur-de-force-50-kg-czl635-50-17601.htm  capteur de force 9.50€ </p>
+-https://www.generationrobots.com/fr/401749-shield-chargeur-pour-panneaux-solaires.html  shield solaire arduino  14.60€</p>
+-livre "démarche projet" pages 18 modules Rf émetteur récepteur 2.4Ghz    2.65€ </p>
+-http://www.conrad.fr/ce/fr/product/505671/Capteur-dhumidit-et-de-temprature-numrique-IST-AG-HYT-221-18-0-100-rF-02-C-40-125-C-1-pcs;jsessionid=075C4C946D63D5077D2E9F3DD94ECE0A.ASTPCEN27?ref=list  capteur température et hygrométrie  29.99€   </p> 
+-https://www.adafruit.com/product/375  magnetic contact switch 3.95$
