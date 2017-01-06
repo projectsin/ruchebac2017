@@ -7,6 +7,7 @@
 <p> Module GSM </p>
 <p> https://www.arduino.cc/en/Guide/ArduinoGSMShield </p>
 <p> https://www.arduino.cc/en/Guide/ArduinoGSMShieldV2#toc4 </p>
+<p> Code: https://www.arduino.cc/en/Guide/ArduinoGSMShieldV2?action=sourceblock&num=2 </p>
 <p> http://raspbian-france.fr/envoyer-sms-raspberry-pi/ </p>
 
 <p> Détection ouverture </p>
