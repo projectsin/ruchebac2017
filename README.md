@@ -1,8 +1,9 @@
 # ruchebac2017
 #Etapes
-<p> Création de l'algo + ajout sur Github. &#9745; </p>
-<p> Création du SYSML + ajout sur Github. &#9744; </p>
+<p> Création de l'algo &#38; ajout sur Github. &#9745; </p>
+<p> Création du SYSML &#38; ajout sur Github. &#189;&#9744; </p>
 <p> Création d'une horloge interne. &#9744; </p>
+<p> Envoie des données grâce à des ondes Hertziennes. &#9744; </p>
 <p> Stockage des données sur carte SD. &#9744; </p>
 
 #Détails
