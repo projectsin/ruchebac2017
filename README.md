@@ -1,7 +1,7 @@
 # ruchebac2017
 
 #Projet
-<p> Créée une horloge sur Arduino qui demande tout les X temps les données (informations de températures, de masse et d'hygrometrie) de toutes les ruches puis les sauvegarder sur rasberry en Java. </p>
+<p> Crée une horloge sur Arduino qui demande tout les X temps les données (informations de températures, de masse et d'hygrometrie) de toutes les ruches puis les sauvegarder sur rasberry en Java. </p>
 
 #Etapes
 <p> &#8226;Création de l'algo &#38; ajout sur Github. &#9745; </p>
