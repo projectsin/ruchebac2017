@@ -2,7 +2,7 @@
 
 #define PINNUMBER ""
 
-GSM gsmAccess; // include a 'true' parameter for debug enabled
+GSM gsmAccess;
 GSM_SMS sms;
 
 char remoteNumber[20]= "12125551212";  
@@ -15,7 +15,6 @@ void setup()
 
 void loop()
 {
-// nothing to see here
 }
 
 void sendSMS(char number, char msg){
