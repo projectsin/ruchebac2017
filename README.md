@@ -15,4 +15,8 @@
 <p> Sauvegarde des données sur le site Internet ? &#9744; </p>
 
 #Lien utiles
-
+http://www.commentcamarche.net/forum/affich-1165710-java-ecrire-dans-un-fichier
+http://www.tomsguide.fr/forum/id-553824/ecrire-lire-fichier-txt-java.html
+http://www.objis.com/formation-java/tutoriel-java-lecture-ecriture-fichier.html
+https://www.clubnix.fr/book/biblioth%C3%A8que-de-code/java/lire-et-%C3%A9crire-dans-un-fichier-en-java
+http://perso.esiee.fr/~bureaud/Unites/In101/Cours/fichiersJava.htm
