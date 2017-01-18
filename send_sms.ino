@@ -1,36 +1,39 @@
 #include <GSM.h>
 
-#define PINNUMBER ""
+#define PINNUMBER "1234"
 
 GSM gsmAccess;
 GSM_SMS sms;
 
-char remoteNumber[20]= "12125551212";  
-char txtMsg[200]="Test";
-
-void setup()
-{
+void setup() {
   Serial.begin(9600);
+  while (!Serial) {
+    ;
+  }
+  send_sms("Test2");
 }
 
-void loop()
-{
+void loop() {
+ if(sms.available()){
+  Serial.println("Message reçu !");
+ }
+ delay(1000);
 }
 
-void sendSMS(char number, char msg){
-  remoteNumber[20] = number;
-  txtMsg[200] = msg;
+void send_sms(String msg){
   boolean notConnected = true;
-  while(notConnected)
-  {
-    if(gsmAccess.begin(PINNUMBER)==GSM_READY)
+  Serial.println("Connection...");
+  while (notConnected) {
+    if (gsmAccess.begin(PINNUMBER) == GSM_READY) {
       notConnected = false;
-    else
-    {
+    } else {
+      Serial.println("Not connected");
       delay(1000);
     }
   }
-  sms.beginSMS(remoteNumber);
-  sms.print(txtMsg);
-  sms.endSMS();  
+  Serial.println("Envoie...");
+  sms.beginSMS("0611511932");
+  sms.print(msg);
+  sms.endSMS();
+  Serial.println("Message envoyé !");
 }
