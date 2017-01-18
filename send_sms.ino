@@ -1,6 +1,9 @@
+//#include <SoftwareSerial.h>
 #include <GSM.h>
 
 #define PINNUMBER "1234"
+
+//SoftwareSerial xbee(2, 3);
 
 GSM gsmAccess;
 GSM_SMS sms;
@@ -10,15 +13,19 @@ void setup() {
   while (!Serial) {
     ;
   }
-  send_sms("Test2");
+  send_sms("Test4");
+  //xbee.begin(9600);
+
+  //sendData("Test xbee");
 }
 
 void loop() {
- if(sms.available()){
-  Serial.println("Message reçu !");
- }
- delay(1000);
 }
+
+/*void sendData(String data){ //test
+  xbee.print(data);
+  Serial.println(data);
+}*/
 
 void send_sms(String msg){
   boolean notConnected = true;
