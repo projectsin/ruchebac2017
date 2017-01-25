@@ -20,6 +20,15 @@
 <p> &#8226;Stockage données sur carte SD. &#9744; </p>
 
 #Liens utiles
+<p> &#8594;https://www.arduino.cc/en/Reference/Libraries </p>
+<p> &#8226;Ondes. </p>
+
+
+
+
+
+
+
 <p> &#8226;Java. </p>
 <p> &#8594;http://www.commentcamarche.net/forum/affich-1165710-java-ecrire-dans-un-fichier </p>
 <p> &#8594;http://www.tomsguide.fr/forum/id-553824/ecrire-lire-fichier-txt-java.html </p>
