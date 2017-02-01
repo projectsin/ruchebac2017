@@ -1,9 +1,9 @@
 # ruchebac2017
-![Build Status](https://img.shields.io/badge/Emilien-20-yellow.svg?style=flat)
-![Build Status](https://img.shields.io/badge/Titi-20-blue.svg?style=flat)
-![Build Status](https://img.shields.io/badge/Maxime-20-blue.svg?style=flat)
-![Build Status](https://img.shields.io/badge/Leo-20-yellow.svg?style=flat)
-![Build Status](https://img.shields.io/badge/Botan-40-red.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Emilien-50-yellow.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Titi-50-blue.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Maxime-50-blue.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Leo-50-yellow.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Botan-80-red.svg?style=flat)
 
 <img src="graph.png"/>
 
@@ -24,7 +24,7 @@
 <b>Botan: </b><p>IHM/base de données en ligne </p>
 <b>Titi: </b><p>SMS/Alerte </p>
 <b>Emilien: </b><p>Mesure de masses  </p>
-<b>Maxime: </b><p>Stockage données sur carte SD </p>
+<b>Maxime: </b><p>Timer/Transmission de données/Stockage données sur Arduino </p>
 
 
 #Etapes
