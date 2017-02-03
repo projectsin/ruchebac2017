@@ -4,10 +4,11 @@
 GSM gsmAccess;
 GSM_SMS sms;
 
+boolean alert = false;
+
 void setup() {
   Serial.begin(9600);
   Serial1.begin(9600);
-  sendSms("Test msg");
 }
 
 void loop() {
