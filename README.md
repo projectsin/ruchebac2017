@@ -3,7 +3,7 @@
 ![Build Status](https://img.shields.io/badge/Titi-50-blue.svg?style=flat)
 ![Build Status](https://img.shields.io/badge/Maxime-50-blue.svg?style=flat)
 ![Build Status](https://img.shields.io/badge/Leo-50-yellow.svg?style=flat)
-![Build Status](https://img.shields.io/badge/Botan-80-red.svg?style=flat)
+![Build Status](https://img.shields.io/badge/Botan-60-red.svg?style=flat)
 
 <img src="graph.png"/>
 
