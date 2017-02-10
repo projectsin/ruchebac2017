@@ -33,6 +33,9 @@
 <p> &#8226;Timer. </p>
 
 
+<p> &#8226;RTC. </p>
+
+
 <p> &#8226;Java. </p>
 <p> &#8594;http://www.commentcamarche.net/forum/affich-1165710-java-ecrire-dans-un-fichier </p>
 <p> &#8594;http://www.tomsguide.fr/forum/id-553824/ecrire-lire-fichier-txt-java.html </p>
