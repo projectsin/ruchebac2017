@@ -14,4 +14,5 @@
 <p> http://vx450-domotique.blogspot.fr/2013/01/detecteur-d-ouverture-arduino.html </p>
 <p> http://evola.fr/fr/position/488-Detecteur-ouverture-porte.html </p>
 <p>https://learn.sparkfun.com/tutorials/reed-switch-hookup-guide </p>
+<p> http://www.instructables.com/id/Arduino-Reed-Switch/ </p>
 
