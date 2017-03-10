@@ -15,4 +15,6 @@
 <p> http://evola.fr/fr/position/488-Detecteur-ouverture-porte.html </p>
 <p>https://learn.sparkfun.com/tutorials/reed-switch-hookup-guide </p>
 <p> http://www.instructables.com/id/Arduino-Reed-Switch/ </p>
+<p> Arduino mega connect </p>
+<p> https://www.arduino.cc/en/Guide/GSMShieldLeonardoMega </p>
 
