@@ -1,7 +1,3 @@
-
-// Francis 17/09/16
-// Communication bidirectionnelle UART
-
 #include <SoftwareSerial.h>
 SoftwareSerial XBEE(2,3);
 
