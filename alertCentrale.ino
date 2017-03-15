@@ -31,7 +31,7 @@ void sendAlertToOperator(){
 
 void checkAlert(){
     while(Serial1.available()){
-        if(Serial1.readString() == "Alerte" && activatedAlert == true){
+        if(Serial1.readString() == "AlerteVol" && activatedAlert == true){
             sendAlertToOperator();
             activatedAlert = false;
         }
