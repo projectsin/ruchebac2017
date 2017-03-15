@@ -6,6 +6,7 @@ GSM_SMS sms;
 GSMVoiceCall vcs;
 
 boolean activatedAlert = true; //Modifiable via l'ihm
+String remoteNumber = "0611511932"; //Modifiable via l'ihm
 
 void setup() {
     Serial.begin(9600);
@@ -38,7 +39,6 @@ void checkAlert(){
 }
 
 void callGsm(){
-   String remoteNumber = "0611511932"; 
    char charbuffer[20];
    if (remoteNumber.length() < 20) {
       remoteNumber.toCharArray(charbuffer, 20);
