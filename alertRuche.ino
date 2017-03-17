@@ -1,7 +1,19 @@
+/*
+
+Données:
+!Alert#Vol
+!Alert#Hygrometrie#{Valeur}
+!Alert#Temperature#{Valeur}
+!Alert#Mieller#ID-Ruche <- Chute de masse avec détecteur d'ouverture sur 1
+
+
+*/
+
 #define detect 2
 #include <SoftwareSerial.h>
 int etatDetect;
 int hygrometrie, temperature, masse;
+
 int intervalleHygrometrie[] = {5,20};
 int intervalleTemperature[] = {5,20};
 int intervalleMasse[] = {5,20};
