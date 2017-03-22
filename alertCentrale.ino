@@ -1,9 +1,14 @@
-#include <GSM.h>
+//#include <GSM.h>
 #define PINNUMBER "1234"
+#include <SoftwareSerial.h> //En mega > Serial1
 
-GSM gsmAccess;
+/*GSM gsmAccess;
 GSM_SMS sms;
-GSMVoiceCall vcs;
+GSMVoiceCall vcs;*/
+
+SoftwareSerial xbee(2, 3); //En mega > Serial1
+
+char numbersOperators[] = {"0611511932"};
 
 boolean activatedAlert = true; //Modifiable via l'ihm
 int idRuche = 1; 
@@ -12,7 +17,7 @@ String subPacket;
 
 void setup() {
     Serial.begin(9600);
-    Serial1.begin(9600);
+    xbee.begin(9600);
     boolean notConnected = true;
     /*while (notConnected) {
         if (gsmAccess.begin(PINNUMBER) == GSM_READY) {
@@ -24,14 +29,19 @@ void setup() {
     }*/
 }
 void loop() {
+    while(Serial.available()){
+      if(Serial.readString() == "reset"){
+        Serial.println("Reset alerte");
+        xbee.print("reset");
+      }
+    }
     checkAlert();
 }
 
 void checkAlert(){
-    while(Serial1.available()){
-        Serial.println(Serial1.readString());
-        if(Serial1.readString() == "!Alert#" && activatedAlert == true){
-            packet = Serial1.readString();
+    while(xbee.available()){
+        if(activatedAlert){
+            packet = xbee.readString();
             Serial.println(packet);
             if(packet.substring(0,7) == "!Alert#"){
               subPacket = packet.substring(7,10);
@@ -50,7 +60,7 @@ void checkAlert(){
     
 }
 
-void callGsm(){
+/*void callGsm(){
    String remoteNumber = "0611511932"; 
    char charbuffer[20];
    if (remoteNumber.length() < 20) {
@@ -64,8 +74,14 @@ void callGsm(){
        Serial.println("That's too long for a phone number. I'm forgetting it");
        remoteNumber = "";
     }
-}
+}*/
 
 void sendSms(String msg){
   Serial.println(msg);
+  xbee.flush();
+  for(char n : numbersOperators){
+     /*sms.beginSMS(n);
+     sms.print(msg);
+     sms.endSMS();*/
+  }
 }
