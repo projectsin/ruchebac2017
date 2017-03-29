@@ -1,26 +1,26 @@
 /*
-
 Données(envoyé):
-0 !Alert#Vol#{ID} 
-1 !Alert#Hygrometrie#{Valeur}
-2 !Alert#Temperature#{Valeur}
-3 !Alert#Batterie#{Niveau de batterie}
-4 !Alert#Mieller#ID-Ruche <- Chute de masse avec détecteur d'ouverture sur 1
+0 !V{ID} 
+1 !H{ID};{arg}
+2 !T{ID};{arg}
+3 !B{ID};{arg}
   
 Données(reçu):
-reset
+on
+off
 
 */
 
 #define detect 2
 #include <SoftwareSerial.h>
 
-const String protocolAlert = "!Alert#";
 const int timerConst = 5; //en seconde
 
 boolean sVol = true, sHygro = true, sTemp = true, sBat = true;
+String text;
+boolean sendAlert = true;
 
-int etatDetect = 1, hygrometrie = 3, temperature = 15, masse = 10, batterie = 2, idRuche = 1; //Variable a modifié
+int etatDetect = 1, hygrometrie = 15, temperature = 15, masse = 10, batterie = 20, idRuche = 1; //Variable a modifié
 int timer; //En seconde
 
 int intervalleHygrometrie[] = {5,20};
@@ -39,10 +39,12 @@ void setup() {
 void loop() {
   checkAlert();
   checkReset();
+  commands();
 }
 
 void checkAlert(){
   delay(1000);
+  if(!sendAlert) return;
   timer--;
   if(timer <= 0){
     if(hygrometrie < intervalleHygrometrie[0] || hygrometrie > intervalleHygrometrie[1]){
@@ -57,7 +59,7 @@ void checkAlert(){
     timer = timerConst;
   }
   
-  etatDetect = 0/*digitalRead(detect)*/;
+  //etatDetect = 1/*digitalRead(detect)*/;
   if(sVol && etatDetect == 0){
     sendXbee(protocolVol());
     sVol = false;
@@ -70,8 +72,12 @@ void checkAlert(){
 
 void checkReset(){
   while(xbee.available()){
-    if(xbee.readString().equals("reset")){
+    if(xbee.readString().equals("on")){
+      sendAlert = true;
       resetAlert();     
+    }
+    if(xbee.readString().equals("off")){
+      sendAlert = false;
     }
   }
 }
@@ -86,18 +92,38 @@ void resetAlert(){
   sVol = true, sHygro = true, sTemp = true, sBat = true;
 }
 
+void commands(){
+  while(Serial.available()){//4
+    text = Serial.readString();
+    String subText = text.substring(0,3);
+    int valeur = text.substring(4).toInt();
+    if(subText == "tem"){
+      temperature = valeur;
+    }
+    if(subText == "hyg"){
+      hygrometrie = valeur;
+    }
+    if(subText == "bat"){
+      batterie = valeur;
+    }
+    if(subText == "vol"){
+      etatDetect = valeur;
+    }
+  }
+}
+
 String protocolVol(){
-  return protocolAlert + "Vol#" + String(idRuche);
+  return "!V" + String(idRuche);
 }
 String protocolHygrometrie(){
   sHygro = false;
-  return protocolAlert + "Hygrometrie#" + String(hygrometrie);
+  return "!H" + String(idRuche) + ";" + String(hygrometrie);
 }
 String protocolTemperature(){
   sTemp = false;
-  return protocolAlert + "Temperature#" + String(temperature); 
+  return "!T" + String(idRuche) + ";" + String(temperature); 
 }
 String protocolBatterie(){
   sBat = false;
-  return protocolAlert + "Batterie#" + String(batterie); 
+  return "!B" + String(idRuche) + ";" + String(batterie); 
 }
