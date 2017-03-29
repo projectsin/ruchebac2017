@@ -62,20 +62,21 @@ void parseHiveData(String data) {
     String humidity = getValue(data, ';', 3);
 
     Serial.println("Hive " + id + " mass = " + mass + " temperature = " + temperature + " humidity = " + humidity);
-  } else if (data.startsWith("!") {
+  } else if (data.startsWith("!") { //PROTOCOL : !'CHAR'ID;ARG
   switch (data.charAt(1)) {
       case 'T':
-        
+        sendSms("Alerte > la temperature de la ruche " + getValue(data.substring(2), ';', 0) + " est de " +  getValue(data.substring(2), ';', 1));
         break;
       case 'V'
-
-          break;
+          sendSms("Alerte > la ruche " + getValue(data.substring(2), ';', 0) + " subis un vol");
+        callGsm();
+        break;
       case 'H'
-
-          break;
-      case 'B'
-
-          break;
+          sendSms("Alerte > l'hygrometrie de la ruche " + getValue(data.substring(2), ';', 0) + " est de " +  getValue(data.substring(2), ';', 1));
+        break;
+      case 'B':
+        sendSms("Alerte > la batterie de la ruche " + getValue(data.substring(2), ';', 0) + " est de " +  getValue(data.substring(2), ';', 1) + "%");
+        break;
     }
   }
 }
@@ -108,5 +109,20 @@ void sendSms(String sms) {
   }
 }
 
+void callGsm() {
+  String remoteNumber = numbersOperators[0;
+                                         char charbuffer[20];
+  if (remoteNumber.length() < 20) {
+    remoteNumber.toCharArray(charbuffer, 20);
+    if (vcs.voiceCall(charbuffer)) {
+      while (Serial.read() != '\n' && (vcs.getvoiceCallStatus() == TALKING));
+      vcs.hangCall();
+    }
+    remoteNumber = "";
+  } else {
+    Serial.println("That's too long for a phone number. I'm forgetting it");
+    remoteNumber = "";
+  }
 }
 
+}
