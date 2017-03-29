@@ -1,0 +1,49 @@
+#include "HX711.h" //inclure la bibliothèque
+
+
+#define S0 2 //définir broche de sélection multiplexeur 
+#define S1 3  //définir broche de sélection multiplexeur 
+
+HX711 scale (A4, A5); //défini les broches d'entrée de données
+
+
+
+
+
+void setup() {
+ pinMode(S0, OUTPUT);
+ pinMode(S1, OUTPUT);
+ scale.set_scale(118200); //la valeur obtenue par le programme de calibration 
+ scale.tare();
+ Serial.begin(9600);
+}
+
+void loop() {
+
+for (byte count = 0; count < 3 ; count++) { //incrémente les pattes du multiplexeur de 0 à 3
+
+digitalWrite(S0, bitRead(count, 0)); 
+digitalWrite(S1, bitRead(count, 1));
+ float reading = obtenirkg(); //lecture de la donnée 
+
+ Serial.print ("valeurSEL"); //afficher dans la console la broche sélectionné par le multi 
+
+ Serial.print(bitRead(count, 1));
+    Serial.print(bitRead(count, 0));
+    //Serial.print(' ');
+    //Serial.println(reading);
+
+delay (1000);
+}
+
+
+}
+
+
+float obtenirkg() {
+  Serial.print("en lecture");
+    //Serial.print(scale.get_units()*0.02 , 1);
+  //Serial.print("KG");
+  Serial.println(scale.get_units(10), 1);
+
+}
