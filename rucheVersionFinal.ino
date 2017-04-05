@@ -1,19 +1,15 @@
 /*
-
   Données(envoyé):
-  0 !V{ID}
-  1 !H{ID};{arg}
-  2 !T{ID};{arg}
-  3 !B{ID};{arg}
-
+  0 !V{ID}#
+  1 !H{ID};{arg}#
+  2 !T{ID};{arg}#
+  3 !B{ID};{arg}#
   Données(reçu):
   on
   off
   ?
-
 */
 
-#include <SoftwareSerial.h>
 #include <HX711.h> //inclure la bibliothèque -> Emilien
 
 #define S0 2 //définir broche de sélection multiplexeur -> Emilien 
@@ -21,13 +17,11 @@
 #define bat A0
 #define detect 4
 
-#include <SoftwareSerial.h>
-
 boolean sVol = true, sHygro = true, sTemp = true, sBat = true;
 String text;
 boolean sendAlert = true;
 
-int etatDetect = 1, batterie = 20, idRuche = 1; //Variable a modifié
+int etatDetect = 1, idRuche = 1; //Variable a modifié
 
 int intervalleHygrometrie[] = {5, 20};
 int intervalleTemperature[] = {5, 20};
@@ -37,16 +31,17 @@ long instant = millis();
 
 HX711 scale (A4, A5); //défini les broches d'entrée de données -> Emilien
 
+#include <SoftwareSerial.h>
 SoftwareSerial xbee(2, 3);
 
 void setup() {
   Serial.begin(9600);
   xbee.begin(9600);
-  pinMode(detect, INPUT);
-  pinMode(S0, OUTPUT); //emilien
-  pinMode(S1, OUTPUT); //emilien
-  scale.set_scale(118200); //la valeur obtenue par le programme de calibration -> emilien
-  scale.tare(); //emilien
+  //pinMode(detect, INPUT);
+ // pinMode(S0, OUTPUT); //emilien
+  //pinMode(S1, OUTPUT); //emilien
+ // scale.set_scale(118200); //la valeur obtenue par le programme de calibration -> emilien
+ // scale.tare(); //emilien
 
   idRuche = getId();
 }
@@ -65,6 +60,11 @@ void loop() {
       parseData(data);
     } else {
       data += c;
+    }
+  }
+  while(Serial.available()){
+    if(Serial.readString() == "t"){
+        sendXbee(protocolBatterie()); 
     }
   }
 }
@@ -86,6 +86,7 @@ void checkAlert() {
     instant = millis();
     float humidity = getHumidity();
     float temperature = getTemperature();
+    float batterie = getBattery();
 
     if (humidity < intervalleHygrometrie[0] || humidity > intervalleHygrometrie[1]) {
       if (sHygro)
@@ -134,7 +135,7 @@ String protocolTemperature() {
 }
 String protocolBatterie() {
   sBat = false;
-  return "!B" + String(idRuche) + ";" + String(batterie) + "#";
+  return "!B" + String(idRuche) + ";" + String(getBattery()) + "#";
 }
 String protocol() { //maxi
   return "D" + String(idRuche) + ";"  + String(getMasse()) + ";" + String(getTemperature()) + ";" + String(getHumidity()) + "#";
@@ -164,19 +165,23 @@ void masseLoop() {
 }
 
 float getMasse() {
-  return 0;
+  return random(5,20);
 }
 
 float getTemperature() {
-  return 0;
+  return random(5,20);
 }
 
 float getHumidity() {
-  return 0;
+  return random(5,20);
+}
+
+byte getBattery(){
+  return 2;
 }
 
 int getId() {
-  return 1;
+  return 2;
 }
 
 
