@@ -4,12 +4,10 @@
 SoftwareSerial XBEE(3, 2); // Affectation des broches du micro-contrôleur
 
 
-
-// Définition des variables
 DS3231 clock;
 RTCDateTime dt;
 boolean isAlarm = false;
-
+boolean alarmState = false;
 
 String message;
 
@@ -39,39 +37,53 @@ void setup()
   Serial.println("Initialize DS3231");;
   clock.begin();
   clock.setDateTime(__DATE__, __TIME__);
-  clock.enableOutput(false);
+  clock.enableOutput(false); //Broche INT Active
   attachInterrupt(0, declenchement, FALLING);
-  pinMode(2,INPUT_PULLUP);
+  clock.armAlarm1(true);
+  clock.armAlarm2(true);
+  pinMode(2, INPUT_PULLUP); //A Laisser, Important. //Broche INT besoin de resistance donc arduino met sa propre Res sans avoir besoin de souder
 }
+
 
 void loop()
 {
   val_masse = 0;
   val_temperature = 0;
   val_humidity = 0;
-  clock.setAlarm1(0, 0, 0, 30, DS3231_MATCH_S);
+
+  /*Pour plus tard #SauvegardeSD
+    Serial.println(t.year);
+    Serial.println(t.month);
+    Serial.println(t.day);
+    Serial.println(t.DayOfWeek);
+    Serial.println(t.hour);
+    Serial.println(t.minute); */
+
+  //Alarmes
+  clock.setAlarm1(0, 8, 0, 0, DS3231_MATCH_H_M_S);
+  clock.setAlarm2(0, 20, 0, DS3231_MATCH_H_M); 
+
   dt = clock.getDateTime();
-  Serial.println(clock.dateFormat("d-m-Y H:i:s - l", dt));
+  Serial.println(clock.dateFormat("d-m-Y H:i:s - l", dt)); //A retirer plus tard, a garder pour mes test
+
   if (isAlarm == 1)
   {
     Serial.println("Heure de declenchement ! --> envoie de la demande"); //A retirer plus tard
-    Serial.println("Mesure"); //A retirer plus tard
-    //demande_mesures(); //A ajouter plus tard
+    demande_mesures();
     isAlarm = 0;
-    //lire_message(); //A ajouter plus tard
-    //ecrire_console(); //A ajouter plus tard
+    lire_message(); 
+    ecrire_database(); 
   }
   Serial.print("--> "); //A retirer plus tard
-  }
+}
 
 
 void demande_mesures()  {
 
-  Serial.println("Send ?"); //A retirer plus tard
-  XBEE.println("?");
+  Serial.println("--> Sending data <--"); //A retirer plus tard
+  XBEE.println("?"); //Envoie de la demande de mesure
 
 }
-
 
 
 void lire_message()
@@ -82,7 +94,7 @@ void lire_message()
     if (c == '#') {
       decode_message(); //A retirer plus tard
       //new_decode_message //A ajouter plus tard
-      Serial.println(message); //debug
+      Serial.println("Paquet Reçu" + message); //debug, a retirer plus tard
       message = "";
     } else {
       message = String(message + c);
@@ -90,7 +102,8 @@ void lire_message()
   }
 }
 
-void decode_message() //A retirer plus tard
+
+void decode_message() //A remplacer plus tard par new_decode_message
 {
   if (message.startsWith("D"))
   {
@@ -112,9 +125,12 @@ void decode_message() //A retirer plus tard
     val_humidity = Str_chaine3.toInt();
   }
 }
-void ecrire_console() //A changer plus tard
+
+
+void ecrire_database() //A changer plus tard
 {
   Serial.println("--> Receiving data <--");
+  Serial.println("-> Mesures !");
   Serial.print("-Hive number : n*");
   Serial.println(id_ruche);
   Serial.print("-Mass : ");
@@ -129,18 +145,20 @@ void ecrire_console() //A changer plus tard
   Serial.println("");
 }
 
+
 void declenchement()
 {
   isAlarm = true;
 }
 
-//void new_decode_message()
-//{
-//if (data.startsWith("D")) {
-//data = data.substring(1);
 
-//String id = getValue(data, ';', 0);
-//String mass = getValue(data, ';', 1);
-// String temperature = getValue(data, ';', 2);
-// String humidity = getValue(data, ';', 3);
-//}
+/*void new_decode_message()
+  {
+  if (data.startsWith("D")) {
+  data = data.substring(1);
+
+  String id = getValue(data, ';', 0);
+  String mass = getValue(data, ';', 1);
+  String temperature = getValue(data, ';', 2);
+  String humidity = getValue(data, ';', 3);
+  }*/
