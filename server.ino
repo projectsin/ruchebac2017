@@ -168,24 +168,18 @@ void connectWithoutInternet() {
 }
 
 void sendSms(String message, boolean call) {
-  connectWithoutInternet();
-
-  sms.beginSMS(remoteNumber);
-
-  sms.print(message);
-
-  sms.endSMS();
+  connectWithoutInternet(); //Déconnection à internet
+  sms.beginSMS(remoteNumber); //Préparation du sms
+  sms.print(message); //Ecrire le message
+  sms.endSMS(); //Terminé l'envoie du SMS
   Serial.println("Send sms > " + message);
-  if (call)
-    callGsm();
-
-  connectWithInternet();
+  if (call) //Si la variable call est vérifiée
+    callGsm(); //Appeler l'opérateur
+  connectWithInternet(); //Reconnexion à internet
 }
-
 void callGsm() {
-
   if (vcs.voiceCall(remoteNumber)) {
-    Serial.println("Call Established. Enter line to end");
+    Serial.println("Appele");
     vcs.hangCall();
   }
 }
