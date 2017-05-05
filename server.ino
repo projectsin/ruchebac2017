@@ -168,13 +168,13 @@ void connectWithoutInternet() {
 }
 
 void sendSms(String message, boolean call) {
-  connectWithoutInternet(); //Déconnection à internet
-  sms.beginSMS(remoteNumber); //Préparation du sms
-  sms.print(message); //Ecrire le message
-  sms.endSMS(); //Terminé l'envoie du SMS
-  if (call) //Si la variable call est vérifiée
-    callGsm(); //Appeler l'opérateur
-  connectWithInternet(); //Reconnexion à internet
+  connectWithoutInternet();
+  sms.beginSMS(remoteNumber);
+  sms.print(message);
+  sms.endSMS();
+  if (call)
+    callGsm();
+  connectWithInternet();
 }
 void callGsm() {
   if (vcs.voiceCall(remoteNumber)) {
