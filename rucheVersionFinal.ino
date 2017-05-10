@@ -255,8 +255,8 @@ float getTemperature() {
 
   float temp = t;
   temp *= 175.72;
-  temp /= 65536;
-  temp -= 46.85;
+  temp /= 0.9925785124;
+  temp -= 6.9250595041;
 
   Serial.print("Temperature :");
   Serial.print(String(temp) + "   ");
