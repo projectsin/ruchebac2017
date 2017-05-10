@@ -309,8 +309,8 @@ float Humidity() {
   hum *= 125;
   hum /= 65536;
   hum -= 6;
-  hum *= 1 / 0.88;
-  hum += 2.89;
+  hum *= 1 / 0.9925785124;
+  hum += 6.9250595041;
   Serial.print("Humidite :");
   Serial.println(hum);
   return hum;
