@@ -164,7 +164,7 @@ void checkAlert() {
     }
   }
 
-  etatDetect = digitalRead(detect);
+  //etatDetect = digitalRead(detect);
   if (sVol && etatDetect == 0) {
     sendXbee(protocolVol());
     sVol = false;
