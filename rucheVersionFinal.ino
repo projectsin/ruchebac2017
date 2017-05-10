@@ -57,7 +57,7 @@ long instant = millis();
 int id = 0;
 
 #include <SoftwareSerial.h>
-SoftwareSerial xbee(2, 3);
+SoftwareSerial xbee(5, 4);
 
 void setup() {
   Serial.begin(9600);
@@ -86,7 +86,7 @@ void setup() {
   //---
 
   //Léo setup
-  reset();
+  /*reset();
   Wire.begin();
   Wire.beginTransmission(0x40);
   Wire.write(0xE7);
@@ -99,12 +99,12 @@ void setup() {
   else
   {
     Serial.println("ERROR...");
-  }
+  }*/
   //---
 }
 
 void loop() {
-  delay(100);
+
 
   checkAlert();
 
@@ -125,8 +125,6 @@ void loop() {
       sendXbee(protocolBatterie());
     }
   }
-  //Temperature();
-  //Humidity();
 
 }
 
@@ -205,27 +203,15 @@ String protocol() { //maxi
   return "D" + String(idRuche) + ";"  + String(getMasse()) + ";" + String(getTemperature()) + ";" + String(getHumidity()) + "#";
 }
 
-float getMasse() {
-  return random(5, 20);
-}
-
-float getTemperature() {
-  return random(5, 20);
-}
-
-float getHumidity() {
-  return random(5, 20);
-}
-
-byte getBattery() {
+float getBattery() {
   return random(5, 100);
+  //return (float(BatteryValue)*5)/1023*2;
 }
 
 //Partie emilien
 
-float calcul_masse()
-{
-  val = 0;
+float getMasse() {
+  /*val = 0;
   for (byte count = 0; count < 4 ; count++)
   {
     digitalWrite(S0, bitRead(pointeur[count], 0));
@@ -237,7 +223,8 @@ float calcul_masse()
   }
   Serial.println (val);
   Serial.print ("Mesure masse : ");
-  return val;
+  return val;*/
+  return random(5, 20);
 }
 
 //--- Fin emilien
@@ -250,18 +237,10 @@ void reset()
   delay(15);
 }
 
-float Temperature() {
-
-  Wire.beginTransmission(HTU21DF_I2CADDR);
+float getTemperature() {
+  /*Wire.beginTransmission(HTU21DF_I2CADDR);
   Wire.write(HTU21DF_READTEMP);
   Wire.endTransmission();
-
-
-
-
-  delay(50);
-
-
 
   //Wire.begin();
   Wire.requestFrom(HTU21DF_I2CADDR, 3);
@@ -281,19 +260,14 @@ float Temperature() {
 
   Serial.print("Temperature :");
   Serial.print(String(temp) + "   ");
-  return temp;
+  return temp;*/
+  return 2;
 }
-float Humidity() {
 
-  Wire.beginTransmission(HTU21DF_I2CADDR);
+float getHumidity() {
+  /*Wire.beginTransmission(HTU21DF_I2CADDR);
   Wire.write(HTU21DF_READHUM);
   Wire.endTransmission();
-
-
-
-  delay(50);
-
-
 
   //Wire.begin();
   Wire.requestFrom(HTU21DF_I2CADDR, 3);
@@ -309,11 +283,12 @@ float Humidity() {
   hum *= 125;
   hum /= 65536;
   hum -= 6;
-  hum *= 1 / 0.9925785124;
-  hum += 6.9250595041;
+  hum *= 1 / 0.88;
+  hum += 2.89;
   Serial.print("Humidite :");
   Serial.println(hum);
-  return hum;
+  return hum;*/
+  return random(5, 20);
 }
 
 int getId() {
@@ -330,5 +305,3 @@ int getId() {
     return id = 10 * dizaine + unit;
   } return id;
 }
-
-
