@@ -19,8 +19,8 @@
 
 #define S0 2 //définir broche de sélection multiplexeur 
 #define S1 3  //définir broche de sélection multiplexeur 
-#define DOUT A4
-#define CLK A5
+#define DOUT A2
+#define CLK A1
 float tableau[] = {46500 , 45100 , 44500 , 42000}; //valeur de calibration
 int pointeur [4] = {0, 1, 3, 2}; //définie l'ordre des capteurs pour éviter les conflits (binaire réfléchie)
 float tare [5];
@@ -107,7 +107,6 @@ void loop() {
   delay(100);
 
   checkAlert();
-  //checkReset(); //a remettre
 
   String data = "";
   while (xbee.available()) {
