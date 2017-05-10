@@ -15,116 +15,116 @@ https://learn.adafruit.com/adafruit-htu21d-f-temperature-humidity-sensor/overvie
 
 #include <Wire.h>
 
+</p>
 
+#define HTU21DF_I2CADDR       0x40 </P>
+#define HTU21DF_READTEMP      0xE3 </p>
+#define HTU21DF_READHUM       0xE5 </p>
+#define HTU21DF_WRITEREG       0xE6 </p>
+#define HTU21DF_READREG       0xE7 </p>
+#define HTU21DF_RESET       0xFE </P>
 
-#define HTU21DF_I2CADDR       0x40
-#define HTU21DF_READTEMP      0xE3
-#define HTU21DF_READHUM       0xE5
-#define HTU21DF_WRITEREG       0xE6
-#define HTU21DF_READREG       0xE7
-#define HTU21DF_RESET       0xFE
+</p>
 
+void setup() { </p>
+Serial.begin(9600); </p>
+Serial.println("Adafruit test.."); </p>
+Wire.begin(); </p>
+reset(); </P>
+Wire.beginTransmission(0x40); </p>
+Wire.write(0xE7); </p>
+Wire.endTransmission(); </p>
+Wire.requestFrom(HTU21DF_I2CADDR, 1); </p>
+if(Wire.read() == 0x2) </p>
+{ </p>
+  Serial.println("HTU21d ok !"); </p>
+ } </p>
+ else </p>
+ { </p>
+  Serial.println("ERROR..."); </p>
+  } </p>
 
+</p>
 
-void setup() {
-Serial.begin(9600);
-Serial.println("Adafruit test..");
-Wire.begin();
-reset();
-Wire.beginTransmission(0x40);
-Wire.write(0xE7);
-Wire.endTransmission(); 
-Wire.requestFrom(HTU21DF_I2CADDR, 1);
-if(Wire.read() == 0x2)
-{
-  Serial.println("HTU21d ok !");
- }
- else 
- {
-  Serial.println("ERROR...");
-  } 
-
-
-
-}
-
-void reset()
-{
-  Wire.beginTransmission(0x40);
- Wire.write(0xFE);
- Wire.endTransmission();
- delay(15);
-}
-void Temperature() {
-
-  Wire.beginTransmission(HTU21DF_I2CADDR);
-  Wire.write(HTU21DF_READTEMP);
-  Wire.endTransmission();
+} </p>
+ </p>
+void reset() </p>
+{ </p>
+  Wire.beginTransmission(0x40); </p>
+ Wire.write(0xFE);</p>
+ Wire.endTransmission();</p>
+ delay(15);</p>
+}</p>
+void Temperature() {</p>
+</p>
+  Wire.beginTransmission(HTU21DF_I2CADDR); </p>
+  Wire.write(HTU21DF_READTEMP); </p>
+  Wire.endTransmission();</p>
   
-
-
+</p>
+</p>
   
-  delay(50);
+  delay(50); </p>
      
-    
+   <p>
 
-  //Wire.begin();
-  Wire.requestFrom(HTU21DF_I2CADDR, 3);
-while (!Wire.available()) {}
+  //Wire.begin(); </p>
+  Wire.requestFrom(HTU21DF_I2CADDR, 3);</p>
+while (!Wire.available()) {}</p>
 
 
- uint16_t t = Wire.read();
-  t <<= 8;
-  t |= Wire.read();
-
-  uint8_t crc = Wire.read();
-
-  float temp = t;
-  temp *= 175.72;
-  temp /= 65536;
-  temp -= 46.85;
-
-  Serial.print("Temperature :");
-  Serial.print(String(temp) + "   ");
-}
-void Humidity() {
-
-    Wire.beginTransmission(HTU21DF_I2CADDR);
-  Wire.write(HTU21DF_READHUM);
-  Wire.endTransmission();
+ uint16_t t = Wire.read();</p>
+  t <<= 8;</p>
+  t |= Wire.read();</p>
+</p>
+  uint8_t crc = Wire.read();</p>
+</p>
+  float temp = t;</p>
+  temp *= 175.72;</p>
+  temp /= 65536;</p>
+  temp -= 46.85;</p>
+</p>
+  Serial.print("Temperature :");</p>
+  Serial.print(String(temp) + "   ");</p>
+}</p>
+void Humidity() {</p>
+</p>
+   Wire.beginTransmission(HTU21DF_I2CADDR); </p>
+  Wire.write(HTU21DF_READHUM); </p>
+  Wire.endTransmission();</p>
+  </p>
+  </p>
   
+  delay(50); </p>
+  </p>
+  </p>
   
-  
-  delay(50); 
-  
-  
-  
-  //Wire.begin();
-  Wire.requestFrom(HTU21DF_I2CADDR, 3);
-  while (!Wire.available()) {}
+  //Wire.begin(); </p>
+  Wire.requestFrom(HTU21DF_I2CADDR, 3); </p>
+  while (!Wire.available()) {} </p>
+</p>
+  uint16_t h = Wire.read();</p>
+  h <<= 8;</p>
+  h |= Wire.read();</p>
 
-  uint16_t h = Wire.read();
-  h <<= 8;
-  h |= Wire.read();
+ //uint8_t crc = Wire.read();</p>
+</p>
+  float hum = h;</p>
+  hum *= 125;</p>
+  hum /= 65536;</p>
+  hum -= 6;</p>
+  hum *= 1/0.9925785124; </p>
+  hum += 6.9250595041;</p>
+ Serial.print("Humidite :"); </p>
+ Serial.println(hum);</p>
+}</p>
+  </p>
+ void loop()</p>
+ {</p>
 
- //uint8_t crc = Wire.read();
-
-  float hum = h;
-  hum *= 125;
-  hum /= 65536;
-  hum -= 6;
-  hum *= 1/0.9925785124; 
-  hum += 6.9250595041;
- Serial.print("Humidite :"); 
- Serial.println(hum);
-}
-  
- void loop()
- {
-
-
-Temperature();
-delay(500);
-Humidity();
-delay(500);
-}
+</p>
+Temperature();</p>
+delay(500);</p>
+Humidity();</p>
+delay(500);</p>
+}</p>
