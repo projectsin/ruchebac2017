@@ -12,13 +12,11 @@
 <p> Test de la liaison entre les ruches et le central avec des valeurs au hasard en reception. &#9745; </p>
 <p> &#8226;Stockage des données sur Arduino. &#9744; </p>
 <p> Test du stockage avec des valeurs au hasard. &#9744; </p>
-<p> &#8226;Toutes les 12h, demander et recevoir les données de toutes les ruches puis les stocker sur Arduino. &#9744; </p>
-<p> Test avec des valurs au hasard. &#9744; </p>
-<p> &#8226;Afficher la date et l'heure pour chaques stockage de données avec une Real Time Clock &#9744; </p>
-<p> &#8226;Recevoir les vrais données puis tester le programme en temps réel. &#9744; </p>
-
-#Optionnel
-<p> &#8226;Stockage données sur carte SD. &#9744; </p>
+<p> &#8226;Toutes les 12h, demander et recevoir les données de toutes les ruches puis les stocker sur Arduino. &#9745; </p>
+<p> Test avec des valurs au hasard. &#9745; </p>
+<p> &#8226;Afficher la date et l'heure pour chaques stockage de données avec une Real Time Clock &#9745; </p>
+<p> &#8226;Recevoir les vrais données puis tester le programme en temps réel. &#9745; </p>
+<p> &#8226;Stockage données sur carte SD. &#9745; </p>
 
 #Liens utiles
 <p> &#8594;https://www.arduino.cc/en/Reference/Libraries </p>
