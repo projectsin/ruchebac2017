@@ -20,6 +20,13 @@ void setup() {
   Serial.println("initialization done");
 }
 
+/*Pour plus tard #SauvegardeSD
+    Serial.println(t.year);
+    Serial.println(t.month);
+    Serial.println(t.day);
+    Serial.println(t.DayOfWeek);
+    Serial.println(t.hour);
+    Serial.println(t.minute); */
 
 void loop() {
   fileSD = SD.open("fileSD.txt", FILE_WRITE);
@@ -29,6 +36,17 @@ void loop() {
 
   if (fileSD) {
     Serial.println("ecriture");
+    fileSD.print(",");
+    fileSD.print("Date / Heure");
+    fileSD.print(t.year);
+    fileSD.print(";");
+    fileSD.println(t.month);
+    fileSD.print(";");
+    fileSD.println(t.day);
+    fileSD.print(";");
+    fileSD.println(t.hour);
+    fileSD.print(":");
+    fileSD.println(t.minute);
     fileSD.print(","); //Ecriture de "," dans le fichier. Ce caractère permet de séparer les données pour ranger les données dans le tableur
     fileSD.print("Masse : ");
     fileSD.print(masse);
