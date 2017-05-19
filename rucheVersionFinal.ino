@@ -1,28 +1,13 @@
-/*
-  Données(envoyé):
-  0 !V{ID}#
-  1 !H{ID};{arg}#
-  2 !T{ID};{arg}#
-  3 !B{ID};{arg}#
-  Données(reçu):
-  A1
-  A0
-  ?
-*/
-
-//léo
+#include <Thread.h>
 #include <Wire.h>
-//---
-
-//Define emilien
 #include <HX711.h> //inclure la bibliothèque -> Emilien
 
 #define S0 2 //définir broche de sélection multiplexeur 
 #define S1 3  //définir broche de sélection multiplexeur 
-#define DOUT A2
-#define CLK A1
+#define DOUT A1
+#define CLK A2
 float tableau[] = {46500 , 45100 , 44500 , 42000}; //valeur de calibration
-int pointeur [4] = {0, 1, 3, 2}; //définie l'ordre des capteurs pour éviter les conflits (binaire réfléchie)
+int pointeur [4] = {0, 1, 3, 2}; //défini l'ordre des capteurs pour éviter les conflits (binaire réfléchi)
 float tare [5];
 float val;
 float val_final;
@@ -59,12 +44,13 @@ int id = 0;
 #include <SoftwareSerial.h>
 SoftwareSerial xbee(5, 4);
 
-void setup() {
-  Serial.begin(9600);
+void setup()
+{
+  Serial.begin(1200);
   xbee.begin(9600);
-
+  //pesee.begin(A1,A2);
   for (int index = 0 ; index <= 5 ; index++) {
-    pinMode(bits[index], INPUT_PULLUP);
+  pinMode(bits[index], INPUT_PULLUP);
   }
 
   idRuche = getId();
@@ -72,21 +58,18 @@ void setup() {
   //Emilien setup
   pinMode(S0, OUTPUT);
   pinMode(S1, OUTPUT);
-
   for (int count = 0; count < 4 ; count++)
   {
     digitalWrite(S0, bitRead(pointeur[count], 0));
     digitalWrite(S1, bitRead(pointeur [count], 1));
-    val = pesee.get_value(10);
+    val = pesee.get_value();
     tare[pointeur[count]] = val;
     Serial.print("Tare :");
-
     Serial.println(val);
   }
-  //---
-
+  delay(100);
   //Léo setup
-  /*reset();
+  //reset();
   Wire.begin();
   Wire.beginTransmission(0x40);
   Wire.write(0xE7);
@@ -99,15 +82,13 @@ void setup() {
   else
   {
     Serial.println("ERROR...");
-  }*/
-  //---
+  }
+  Serial.println("Fin setup");
 }
 
-void loop() {
-
-
+void loop()
+{
   checkAlert();
-
   String data = "";
   while (xbee.available()) {
     char c = xbee.read();
@@ -125,7 +106,7 @@ void loop() {
       sendXbee(protocolBatterie());
     }
   }
-
+  
 }
 
 void parseData(String data) {
@@ -211,7 +192,7 @@ float getBattery() {
 //Partie emilien
 
 float getMasse() {
-  /*val = 0;
+  val = 0;
   for (byte count = 0; count < 4 ; count++)
   {
     digitalWrite(S0, bitRead(pointeur[count], 0));
@@ -223,8 +204,8 @@ float getMasse() {
   }
   Serial.println (val);
   Serial.print ("Mesure masse : ");
-  return val;*/
-  return random(5, 20);
+  return val;
+ 
 }
 
 //--- Fin emilien
@@ -238,47 +219,36 @@ void reset()
 }
 
 float getTemperature() {
-  /*Wire.beginTransmission(HTU21DF_I2CADDR);
+  Wire.beginTransmission(HTU21DF_I2CADDR);
   Wire.write(HTU21DF_READTEMP);
   Wire.endTransmission();
-
   //Wire.begin();
   Wire.requestFrom(HTU21DF_I2CADDR, 3);
   while (!Wire.available()) {}
-
-
   uint16_t t = Wire.read();
   t <<= 8;
   t |= Wire.read();
-
   uint8_t crc = Wire.read();
-
   float temp = t;
   temp *= 175.72;
   temp /= 65536;
   temp -= 46.85;
-
   Serial.print("Temperature :");
   Serial.print(String(temp) + "   ");
-  return temp;*/
-  return 2;
+  return temp;
 }
 
 float getHumidity() {
-  /*Wire.beginTransmission(HTU21DF_I2CADDR);
+  Wire.beginTransmission(HTU21DF_I2CADDR);
   Wire.write(HTU21DF_READHUM);
   Wire.endTransmission();
-
   //Wire.begin();
   Wire.requestFrom(HTU21DF_I2CADDR, 3);
   while (!Wire.available()) {}
-
   uint16_t h = Wire.read();
   h <<= 8;
   h |= Wire.read();
-
   //uint8_t crc = Wire.read();
-
   float hum = h;
   hum *= 125;
   hum /= 65536;
@@ -287,8 +257,7 @@ float getHumidity() {
   hum += 6.9250595041;
   Serial.print("Humidite :");
   Serial.println(hum);
-  return hum;*/
-  return random(5, 20);
+  return hum;
 }
 
 int getId() {
