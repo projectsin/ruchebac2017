@@ -47,6 +47,8 @@ void setup() {
   Serial.begin(1200);
   xbee.begin(9600);
 
+  pinMode(detect, INPUT_PULLUP); //Dans le setup
+  
   for (int index = 0 ; index <= 5 ; index++)
     pinMode(bits[index], INPUT_PULLUP);
 
