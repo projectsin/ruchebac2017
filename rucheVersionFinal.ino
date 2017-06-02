@@ -91,6 +91,7 @@ void loop() {
       Serial.println("Receive complete ->" + c);
       Serial.println("Receive char ->" + data);
       parseData(data);
+      data = "";
     } else {
       data += c;
     }
