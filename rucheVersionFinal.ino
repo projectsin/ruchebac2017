@@ -1,4 +1,5 @@
 #include <Thread.h>
+#include <MsTimer2.h>
 #include <Wire.h>
 #include <HX711.h> //inclure la bibliothèque -> Emilien
 
@@ -56,6 +57,9 @@ void setup() {
 
   setupMass();
   setupWire();
+  
+  MsTimer2::set(1000, checkAlert);
+  MsTimer2::start();
 }
 
 
