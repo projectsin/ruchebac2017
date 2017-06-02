@@ -127,7 +127,7 @@ void checkAlert() {
       if (sTemp)
         sendXbee(protocolTemperature());
     }
-    if (batterie < 5) {
+    if (batterie < 3.4) {
       if (sBat)
         sendXbee(protocolBatterie());
     }
@@ -170,8 +170,8 @@ String protocol() { //maxi
 }
 
 float getBattery() {
-  return random(5, 100);
-  //return (float(BatteryValue)*5)/1023*2;
+  int BatteryValue = analogRead(bat);
+  return (float(BatteryValue)*5)/1023*2;
 }
 
 //Partie emilien
