@@ -134,12 +134,16 @@ SoftwareSerial xbee(2, 3);
 xbee.begin(9600); //Dans le setup
 
 xbee.println("exemple") //Envoi
-  
-while (xbee.available()) { //Réception
-  char c = xbee.read();
-  if (c == '#') { //Fin de lecture
-    parseData(data); //Traitement
-  } else {
-    data += c;
+
+void loop(){
+  String data = "";
+  while (xbee.available()) { //Réception
+   char c = xbee.read();
+   if (c == '#') { //Fin de lecture
+     parseData(data); //Traitement
+     data = ""; 
+   } else {
+      data += c;
+   }
   }
 }
