@@ -82,7 +82,6 @@ void setupWire() {
 }
 
 void loop() {
-  //checkAlert();
   String data = "";
   while (xbee.available()) {
     char c = xbee.read();
