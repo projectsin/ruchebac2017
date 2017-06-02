@@ -41,7 +41,7 @@ int intervalleMasse[] = {5, 20};
 long instant = millis();
 
 #include <SoftwareSerial.h>
-SoftwareSerial xbee(5, 4);
+SoftwareSerial xbee(5, 4); //uniquement sur les ruches
 
 void setup() {
   Serial.begin(1200);
