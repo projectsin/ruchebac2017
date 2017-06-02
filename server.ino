@@ -111,7 +111,7 @@ void parseHiveData(String data) {
 
     Serial.println("Hive " + id + " mass = " + mass + " temperature = " + temperature + " humidity = " + humidity);
     client.print("D" + data);
-  } else if (data.startsWith("!")) { //PROTOCOL : !'CHAR'ID;ARG
+  } else if (data.startsWith("!")) {
     switch (data.charAt(1)) {
       case 'T':
         sendSms("Alerte > la temperature de la ruche " + getValue(data.substring(2), ';', 0) + " est de " +  getValue(data.substring(2), ';', 1), true);
