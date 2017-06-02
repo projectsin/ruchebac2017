@@ -106,10 +106,10 @@ void parseData(String data) {
     delay(hiveId * 3000);
     sendXbee(protocol());
   } else {
-    if (data.startsWith("A1")) resetAlert();
-    sendAlert = data.startsWith("A1");
-    Serial.println((sendAlert) ? "Activé" : "Désactivé");
-    xbee.flush();
+    if(data.startsWith("A1") || data.startsWith("A0")){
+      if (data.startsWith("A1")) resetAlert();
+      sendAlert = data.startsWith("A1");
+    }
   }
 }
 
