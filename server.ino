@@ -114,17 +114,20 @@ void parseHiveData(String data) {
   } else if (data.startsWith("!")) {
     switch (data.charAt(1)) {
       case 'T':
-        sendSms("Alerte > la temperature de la ruche " + getValue(data.substring(2), ';', 0) + " est de " +  getValue(data.substring(2), ';', 1), true);
+        sendSms("Alerte > la temperature de la ruche " + getValue(data.substring(2), ';', 0) + " est de " 
+                +  getValue(data.substring(2), ';', 1), true);
         break;
       case 'V':
         sendSms("Alerte > la ruche " + getValue(data.substring(2), ';', 0) + " subis un vol", true);
         callGsm();
         break;
       case 'H':
-        sendSms("Alerte > la hygrometrie de la ruche " + getValue(data.substring(2), ';', 0) + " est de " +  getValue(data.substring(2), ';', 1), true);
+        sendSms("Alerte > la hygrometrie de la ruche " + getValue(data.substring(2), ';', 0) + " est de "
+                +  getValue(data.substring(2), ';', 1), true);
         break;
       case 'B':
-        sendSms("Alerte > la batterie de la ruche " + getValue(data.substring(2), ';', 0) + " est de " +  getValue(data.substring(2), ';', 1) + "%", true);
+        sendSms("Alerte > la batterie de la ruche " + getValue(data.substring(2), ';', 0) + " est de "
+                +  getValue(data.substring(2), ';', 1) + "%", true);
         break;
     }
   }
